@@ -7,16 +7,19 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import comparators.IntegerComparator;
 import comparators.StringLengthComparator;
 
 public class AbstractArrayHeapTest {
 
   private AbstractArrayHeap<String, Integer> arrayHeap;
+  private AbstractArrayHeap<Integer,String> intStringHeap;
 
   @Before
   public void setup() {
     arrayHeap = new StudentArrayHeap<String, Integer>(new StringLengthComparator());
-  }
+    intStringHeap = new StudentArrayHeap<Integer,String>(new IntegerComparator());
+    }
 
   @Test(timeout = 100)
   public void testBubbleUp() {
@@ -164,5 +167,18 @@ public class AbstractArrayHeapTest {
   public void testIndexOutOfBoundsException3(){
     arrayHeap.getParentOf(0);
   }
-
+  
+  @Test (timeout =100)
+  public void Test1ElemBubUp(){
+	  intStringHeap.add(0, "Only one");
+	  assertEquals("Only one",intStringHeap.remove());
+  }
+  
+  @Test (timeout = 100)
+  public void sameValueTest(){
+	  intStringHeap.add(0, ".");
+	  intStringHeap.add(0, "..");
+	  intStringHeap.add(0, "...");
+	  assertEquals(".",intStringHeap.remove());
+  }
 }

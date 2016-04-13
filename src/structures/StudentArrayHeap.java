@@ -66,7 +66,7 @@ public class StudentArrayHeap<P, V> extends AbstractArrayHeap<P, V> {
 
 	}
 	
-	public Entry<P, V> getEntry(int index){
+	protected Entry<P, V> getEntry(int index){
 		return heap.get(index);
 	}
 	

@@ -1,20 +1,21 @@
 package structures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Queue;
 
 public class QueueIterator<P,V> implements Iterator{
 	
-	Queue<Entry<P,V>> toIter;
+	ArrayList <Entry<P,V>> toIter;
 	
 	public <Entry> QueueIterator (StudentArrayHeap<P,V> theHeap){
-		for (int i = 0; i <theHeap.size(); i++){
+		for (int i = 0; i < theHeap.size(); i++){
 			toIter.add(theHeap.getEntry(0));
 		}
 	}
 	
 	public boolean hasNext(){
-		if (toIter.peek() != null){
+		if (toIter.get(0) != null){
 			return true;
 		}
 		return false;
@@ -23,7 +24,7 @@ public class QueueIterator<P,V> implements Iterator{
 	@Override
 	public Object next() {
 		// TODO Auto-generated method stub
-		return toIter.remove();
+		return toIter.remove(0);
 	}
 	
 

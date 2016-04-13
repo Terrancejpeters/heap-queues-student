@@ -21,14 +21,17 @@ public class MaxQueue<V> implements PriorityQueue<Integer, V> {
 	}
 
 	@Override
-	public V dequeue() {
-		// TODO Auto-generated method stub
+	public V dequeue() throws IllegalStateException{
+		if (isEmpty()){
+			throw new IllegalStateException();
+		}
 		return heap.remove();
 	}
 
 	@Override
-	public V peek() {
-		// TODO Auto-generated method stub
+	public V peek() throws IllegalStateException {
+		if (isEmpty())
+			throw new IllegalStateException();
 		return heap.peek();
 	}
 

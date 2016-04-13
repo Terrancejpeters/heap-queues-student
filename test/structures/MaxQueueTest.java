@@ -26,5 +26,24 @@ public class MaxQueueTest {
     assertEquals("Medium priority", queue.dequeue());
     assertEquals("Low priority", queue.dequeue());
   }
+  
+  @Test (timeout = 100, expected = IllegalStateException.class)
+  public void testIllegalState1(){
+	  queue.dequeue();
+  }
+  
+  @Test (timeout = 100, expected = IllegalStateException.class)
+  public void testIllegalState2(){
+	  queue.peek();
+  }
+  
+ /* @Test (timeout = 100)
+  public void testIterator(){
+	  queue.enqueue(1, "small");
+	  queue.enqueue(2, "medium");
+	  queue.enqueue(3, "large");
+	  System.out.println(queue.iterator().next().getValue());
+	  assertEquals("large",queue.iterator().next().getValue());
+  }*/
 
 }
